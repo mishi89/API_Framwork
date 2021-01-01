@@ -9,10 +9,10 @@ import org.testing.Utilities.LoadProperties;
 public class TC1_GetRequest {
 
 	public static void main(String[] args) throws IOException {
-		
+
 		Properties p = LoadProperties.properties("../API_Framwork_Design/URI.properties");
-HTTPMethods  gethttp = new HTTPMethods(p);
-gethttp.getRequest("QA_URI");
+		HTTPMethods gethttp = new HTTPMethods(p);
+		gethttp.getRequest("QA_URI");
 
 	}
 
