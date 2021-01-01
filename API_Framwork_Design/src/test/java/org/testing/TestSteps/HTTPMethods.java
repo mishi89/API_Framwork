@@ -16,12 +16,23 @@ public class HTTPMethods {
 		this.pr= pr;
 	}
 	
-	public void GetRequest(String UriKey)
+	public void getRequest(String UriKey)
 	{
 		Response res = given()
 		.contentType(ContentType.JSON)
 		.when()
 		.get(pr.getProperty(UriKey));
+		System.out.println(res.statusCode());
+		System.out.println(res.asString());
+	}
+	
+	public void postRequest(String UriKey , String body)
+	{
+	Response res = 	given()
+		.contentType(ContentType.JSON)
+		.body(body)
+		.when()
+		.post(pr.getProperty(UriKey));
 		System.out.println(res.statusCode());
 		System.out.println(res.asString());
 	}
