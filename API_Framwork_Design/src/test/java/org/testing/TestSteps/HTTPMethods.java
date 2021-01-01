@@ -16,7 +16,7 @@ public class HTTPMethods {
 		this.pr= pr;
 	}
 	
-	public void GetRequest(String UriKey)
+	public void getRequest(String UriKey)
 	{
 		Response res = given()
 		.contentType(ContentType.JSON)
@@ -25,5 +25,29 @@ public class HTTPMethods {
 		System.out.println(res.statusCode());
 		System.out.println(res.asString());
 	}
+	
+	public Response postRequest(String UriKey , String body)
+	{
+	Response res = 	given()
+		.contentType(ContentType.JSON)
+		.body(body)
+		.when()
+		.post(pr.getProperty(UriKey));
+		return res;
+	}
+	
+	public void getRequest_postid_apichanining(String UriKey,String idvalue )
+	{
+		//-----------URICreate  Base + endpoint----------------------------//
+		String uri= pr.getProperty(UriKey)+"/"+idvalue;
+		Response res = given()
+		.contentType(ContentType.JSON)
+		.when()
+		.get(uri);
+		System.out.println(res.statusCode());
+		System.out.println(res.asString());
+		
+	}
+	
 
 }
