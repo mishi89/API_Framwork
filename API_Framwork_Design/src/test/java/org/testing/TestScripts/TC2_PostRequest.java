@@ -9,9 +9,13 @@ import org.testing.TestSteps.HTTPMethods;
 import org.testing.Utilities.JsonReplacement;
 import org.testing.Utilities.LoadJsonPayLoad;
 import org.testing.Utilities.LoadProperties;
+import org.testing.Utilities.ParsingJsonUsingJsonPath;
+
+import com.jayway.restassured.response.Response;
 
 public class TC2_PostRequest {
 
+	static String idValue;
 //-----------------------------------Using Org.Json------------------------------//		
 	/*
 	 * JSONObject data= new JSONObject(); data.put("First Name", "HM");
@@ -33,7 +37,9 @@ public class TC2_PostRequest {
 		String body = LoadJsonPayLoad.loadJson("../API_Framwork_Design/src/test/java/org/testing/Payloads/body.json");
 		body = JsonReplacement.jsonValueReplacement(body, "id", ran_id.toString());
 		HTTPMethods postmethodhit = new HTTPMethods(p);
-		postmethodhit.postRequest("QA_URI", body);
+		Response res = postmethodhit.postRequest("QA_URI", body);
+		idValue= ParsingJsonUsingJsonPath.parseJson(res, "id");
+		System.out.println("Id is "+ idValue);
 	}
 
 }

@@ -26,15 +26,14 @@ public class HTTPMethods {
 		System.out.println(res.asString());
 	}
 	
-	public void postRequest(String UriKey , String body)
+	public Response postRequest(String UriKey , String body)
 	{
 	Response res = 	given()
 		.contentType(ContentType.JSON)
 		.body(body)
 		.when()
 		.post(pr.getProperty(UriKey));
-		System.out.println(res.statusCode());
-		System.out.println(res.asString());
+		return res;
 	}
 
 }
