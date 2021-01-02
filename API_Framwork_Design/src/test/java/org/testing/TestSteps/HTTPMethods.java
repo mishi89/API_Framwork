@@ -48,6 +48,17 @@ public class HTTPMethods {
 		System.out.println(res.asString());
 		
 	}
+//--------------------------------------------Fetch All Id only ---------------------
+	public Response getRequestparseallkey(String UriKey)
+	{
+		Response res = given()
+		.contentType(ContentType.JSON)
+		.when()
+		.get(pr.getProperty(UriKey));
+		System.out.println(res.statusCode());
+		System.out.println(res.asString());
+		return res;
+	}
 	
 
 }

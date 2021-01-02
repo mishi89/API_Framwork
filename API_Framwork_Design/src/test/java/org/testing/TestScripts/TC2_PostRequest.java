@@ -5,6 +5,7 @@ import java.util.Properties;
 import java.util.Random;
 
 import org.json.JSONObject;
+import org.testing.ResponseValidation.ResponseValidate;
 import org.testing.TestSteps.HTTPMethods;
 import org.testing.Utilities.JsonReplacement;
 import org.testing.Utilities.LoadJsonPayLoad;
@@ -40,6 +41,7 @@ public class TC2_PostRequest {
 		Response res = postmethodhit.postRequest("QA_URI", body);
 		idValue= ParsingJsonUsingJsonPath.parseJson(res, "id");
 		System.out.println("Id is "+ idValue);
+		ResponseValidate.statuscodeValidate(201, res);
 	}
 
 }
