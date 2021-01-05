@@ -18,5 +18,6 @@ public class TC5_ParseAll_ID {
 		Response res = http.getRequestparseallkey("QA_URI");
 		System.out.println(res.asString());
 		ResponseValidate.statuscodeValidate(200, res);
+		ResponseValidate.dataValidate("streetName", res, "[1].streetName");
 	}
 }

@@ -60,5 +60,20 @@ public class HTTPMethods {
 		return res;
 	}
 	
+	public Response putRequest(String body,String UriKey,String IdValue)
+	{
+		
+		String uri= pr.getProperty(UriKey)+"/"+IdValue;
+		Response res = 
+				given()
+				.contentType(ContentType.JSON)
+				.body(body)
+				.when()
+				.put(uri);
+			
+		return res;
+		
+	}
+	
 
 }

@@ -5,8 +5,7 @@ import org.testing.Utilities.ParsingJsonUsingJsonPath;
 import com.jayway.restassured.response.Response;
 
 public class ResponseValidate {
-	public static void statuscodeValidate(int ExpectedStatusCode, Response res) 
-	{
+	public static void statuscodeValidate(int ExpectedStatusCode, Response res) {
 
 		if (ExpectedStatusCode == res.getStatusCode()) {
 			System.out.println("Statatus Code matched");
@@ -16,9 +15,13 @@ public class ResponseValidate {
 		}
 
 	}
-	
-	public static void dataValidate(String expectedData,Response res, String Jsonpath)
-	{
-		if(expectedData.equals(ParsingJsonUsingJsonPath.parseJson(res, Jsonpath)));
+
+	public static void dataValidate(String expectedData, Response res, String Jsonpath) {
+		if (expectedData.equalsIgnoreCase(ParsingJsonUsingJsonPath.parseJson(res, Jsonpath))) {
+
+			System.out.println("Data mAtched");
+		} else {
+			System.out.println("mismatch");
+		}
 	}
 }

@@ -19,9 +19,10 @@ public class TC2_PostRequest {
 	static String idValue;
 //-----------------------------------Using Org.Json------------------------------//		
 	/*
-	 * JSONObject data= new JSONObject(); data.put("First Name", "HM");
-	 * data.put("Last Name", "Mishra"); data.put("Address", "mZNN"); data.put("id",
-	 * "1hm");
+	 * JSONObject data= new JSONObject(); 
+	 * data.put("First Name", "HM");
+	 * data.put("Last Name", "Mishra"); data.put("Address", "mZNN"); 
+	 * data.put("id","1hm");
 	 * 
 	 * Properties p =
 	 * LoadProperties.properties("../API_Framwork_Design/URI.properties");
